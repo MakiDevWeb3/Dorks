@@ -37,6 +37,7 @@
             --danger: #ef4444;
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-2: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         
         * {
@@ -140,6 +141,17 @@
             animation-delay: 5s;
         }
         
+        .orb-3 {
+            width: 600px;
+            height: 600px;
+            background: #f59e0b;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            opacity: 0.1;
+        }
+        
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(30px, -30px) scale(1.1); }
@@ -191,6 +203,10 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
         }
         
         .btn-secondary {
@@ -312,12 +328,40 @@
             background: var(--accent);
             color: white;
         }
+        
+        .engine-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .engine-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .engine-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .engine-card:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <div class="gradient-orbs">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
     <div class="grid-bg"></div>
     <div id="root"></div>
@@ -367,6 +411,11 @@
                 duckduckgoDesc: "Recherche privée sans tracking",
                 yandexDesc: "Moteur de recherche russe",
                 startpageDesc: "Résultats Google avec protection de la vie privée",
+                qwantDesc: "Moteur de recherche français respectueux de la vie privée",
+                braveDesc: "Moteur de recherche privé avec récompenses",
+                ecosiaDesc: "Moteur de recherche qui plante des arbres",
+                mojeekDesc: "Moteur de recherche indépendant avec son propre index",
+                swisscowsDesc: "Moteur de recherche suisse axé sur la confidentialité",
                 allDesc: "Ouvrir dans tous les moteurs",
                 copyQuery: "Copier",
                 search: "Rechercher",
@@ -393,6 +442,37 @@
                 savedQueries: "Requêtes sauvegardées",
                 noSavedQueries: "Aucune requête sauvegardée pour le moment",
                 loadQuery: "Modifier",
+                
+                whatIsDorking: "Qu'est-ce que le Google Dorking ?",
+                whatIsDorkingDesc: "Le Google Dorking, aussi appelé Google Hacking, est une technique de recherche avancée utilisant des opérateurs spécifiques pour trouver des informations précises et parfois sensibles sur Internet via le moteur de recherche Google.",
+                howItWorks: "Comment ça fonctionne ?",
+                howItWorksDesc1: "Google indexe des milliards de pages web. En utilisant des opérateurs de recherche spécialisés, vous pouvez filtrer ces résultats pour trouver exactement ce que vous cherchez :",
+                howItWorksDesc2: "• Des fichiers spécifiques (PDF, DOC, XLS, etc.)",
+                howItWorksDesc3: "• Des pages avec des mots-clés précis dans le titre ou l'URL",
+                howItWorksDesc4: "• Des informations de configuration de serveurs",
+                howItWorksDesc5: "• Des pages de connexion ou d'administration",
+                history: "Un peu d'histoire",
+                historyDesc1: "Le concept a été popularisé par Johnny Long en 2002 avec son livre 'Google Hacking for Penetration Testers'. Il a découvert qu'en combinant des opérateurs simples, on pouvait trouver des informations que les administrateurs pensaient cachées.",
+                historyDesc2: "Aujourd'hui, le Google Dorking est utilisé à la fois par des professionnels de la sécurité pour tester la robustesse des systèmes, et par des chercheurs d'informations.",
+                ethicalUseTitle: "Utilisation éthique",
+                ethicalUseDesc1: "Le Google Dorking peut révéler des informations sensibles :",
+                ethicalUseDesc2: "• Fichiers contenant des mots de passe",
+                ethicalUseDesc3: "• Pages d'administration non protégées",
+                ethicalUseDesc4: "• Documents confidentiels indexés par erreur",
+                ethicalUseDesc5: "• Informations personnelles exposées",
+                ethicalUseWarning: "⚠️ Important : N'utilisez ces techniques que sur vos propres sites ou avec une autorisation explicite. L'exploitation de vulnérabilités sans consentement est illégale.",
+                useCases: "Cas d'utilisation légitimes",
+                useCase1: "Tests de sécurité (pentesting) autorisés",
+                useCase2: "Recherche académique",
+                useCase3: "Veille informationnelle",
+                useCase4: "Administration système",
+                useCase5: "OSINT (renseignement open source)",
+                dorkingVsHacking: "Dorking vs Hacking",
+                dorkingVsHackingDesc: "Le Google Dorking n'est pas du hacking en soi - c'est juste une méthode de recherche avancée. C'est l'utilisation des informations trouvées qui peut devenir problématique si elle est faite sans autorisation.",
+                learnMore: "En savoir plus",
+                startBuilding: "Commencer à construire",
+                
+                openingAllEngines: "Ouverture dans tous les moteurs de recherche...",
             },
             en: {
                 home: "Home",
@@ -435,6 +515,11 @@
                 duckduckgoDesc: "Private search without tracking",
                 yandexDesc: "Russian search engine",
                 startpageDesc: "Google results with privacy protection",
+                qwantDesc: "French privacy-respecting search engine",
+                braveDesc: "Private search engine with rewards",
+                ecosiaDesc: "Search engine that plants trees",
+                mojeekDesc: "Independent search engine with its own index",
+                swisscowsDesc: "Swiss privacy-focused search engine",
                 allDesc: "Open in all engines",
                 copyQuery: "Copy",
                 search: "Search",
@@ -461,9 +546,41 @@
                 savedQueries: "Saved queries",
                 noSavedQueries: "No saved queries yet",
                 loadQuery: "Edit",
+                
+                whatIsDorking: "What is Google Dorking?",
+                whatIsDorkingDesc: "Google Dorking, also known as Google Hacking, is an advanced search technique using specific operators to find precise and sometimes sensitive information on the Internet through the Google search engine.",
+                howItWorks: "How does it work?",
+                howItWorksDesc1: "Google indexes billions of web pages. By using specialized search operators, you can filter these results to find exactly what you're looking for:",
+                howItWorksDesc2: "• Specific files (PDF, DOC, XLS, etc.)",
+                howItWorksDesc3: "• Pages with specific keywords in title or URL",
+                howItWorksDesc4: "• Server configuration information",
+                howItWorksDesc5: "• Login or administration pages",
+                history: "A bit of history",
+                historyDesc1: "The concept was popularized by Johnny Long in 2002 with his book 'Google Hacking for Penetration Testers'. He discovered that by combining simple operators, one could find information that administrators thought was hidden.",
+                historyDesc2: "Today, Google Dorking is used both by security professionals to test system robustness, and by information researchers.",
+                ethicalUseTitle: "Ethical Use",
+                ethicalUseDesc1: "Google Dorking can reveal sensitive information:",
+                ethicalUseDesc2: "• Files containing passwords",
+                ethicalUseDesc3: "• Unprotected admin pages",
+                ethicalUseDesc4: "• Confidential documents indexed by mistake",
+                ethicalUseDesc5: "• Exposed personal information",
+                ethicalUseWarning: "⚠️ Important: Only use these techniques on your own sites or with explicit permission. Exploiting vulnerabilities without consent is illegal.",
+                useCases: "Legitimate use cases",
+                useCase1: "Authorized security testing (pentesting)",
+                useCase2: "Academic research",
+                useCase3: "Information monitoring",
+                useCase4: "System administration",
+                useCase5: "OSINT (Open Source Intelligence)",
+                dorkingVsHacking: "Dorking vs Hacking",
+                dorkingVsHackingDesc: "Google Dorking isn't hacking per se - it's just an advanced search method. It's the use of the information found that can become problematic if done without authorization.",
+                learnMore: "Learn more",
+                startBuilding: "Start building",
+                
+                openingAllEngines: "Opening in all search engines...",
             }
         };
         
+        // Search Engines Configuration - BEAUCOUP PLUS DE MOTEURS !
         const searchEngines = [
             {
                 id: 'google',
@@ -471,6 +588,8 @@
                 icon: 'G',
                 gradient: 'linear-gradient(135deg, #4285f4 0%, #34a853 100%)',
                 url: 'https://www.google.com/search?q=',
+                color: '#4285f4',
+                popular: true
             },
             {
                 id: 'bing',
@@ -478,6 +597,8 @@
                 icon: 'B',
                 gradient: 'linear-gradient(135deg, #008373 0%, #00a88e 100%)',
                 url: 'https://www.bing.com/search?q=',
+                color: '#008373',
+                popular: true
             },
             {
                 id: 'duckduckgo',
@@ -485,6 +606,8 @@
                 icon: 'D',
                 gradient: 'linear-gradient(135deg, #de5833 0%, #ff8c42 100%)',
                 url: 'https://duckduckgo.com/?q=',
+                color: '#de5833',
+                popular: true
             },
             {
                 id: 'yandex',
@@ -492,6 +615,8 @@
                 icon: 'Y',
                 gradient: 'linear-gradient(135deg, #ff0000 0%, #ff4444 100%)',
                 url: 'https://yandex.com/search/?text=',
+                color: '#ff0000',
+                popular: true
             },
             {
                 id: 'startpage',
@@ -499,13 +624,62 @@
                 icon: 'S',
                 gradient: 'linear-gradient(135deg, #1a1a1a 0%, #404040 100%)',
                 url: 'https://www.startpage.com/sp/search?q=',
+                color: '#1a1a1a',
+                popular: true
+            },
+            {
+                id: 'qwant',
+                name: 'Qwant',
+                icon: 'Q',
+                gradient: 'linear-gradient(135deg, #4ba2f2 0%, #0078d4 100%)',
+                url: 'https://www.qwant.com/?q=',
+                color: '#4ba2f2',
+                popular: true
+            },
+            {
+                id: 'brave',
+                name: 'Brave',
+                icon: 'B',
+                gradient: 'linear-gradient(135deg, #fb542b 0%, #ff7e5f 100%)',
+                url: 'https://search.brave.com/search?q=',
+                color: '#fb542b',
+                popular: true
+            },
+            {
+                id: 'ecosia',
+                name: 'Ecosia',
+                icon: 'E',
+                gradient: 'linear-gradient(135deg, #4caf50 0%, #8bc34a 100%)',
+                url: 'https://www.ecosia.org/search?q=',
+                color: '#4caf50',
+                popular: true
+            },
+            {
+                id: 'mojeek',
+                name: 'Mojeek',
+                icon: 'M',
+                gradient: 'linear-gradient(135deg, #f90 0%, #ffb347 100%)',
+                url: 'https://www.mojeek.com/search?q=',
+                color: '#f90',
+                popular: false
+            },
+            {
+                id: 'swisscows',
+                name: 'Swisscows',
+                icon: 'S',
+                gradient: 'linear-gradient(135deg, #003d7c 0%, #1a5f9c 100%)',
+                url: 'https://swisscows.com/web?query=',
+                color: '#003d7c',
+                popular: false
             },
             {
                 id: 'all',
-                name: 'All',
+                name: 'ALL',
                 icon: '🌐',
                 gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 url: 'multi',
+                color: '#667eea',
+                popular: true
             }
         ];
         
@@ -564,6 +738,153 @@
             );
         };
         
+        const WhatIsDorking = ({ currentLang }) => {
+            const t = translations[currentLang];
+            
+            return (
+                <div className="glass-strong rounded-2xl p-10 mb-16">
+                    <div className="flex items-center gap-4 mb-8">
+                        <div className="feature-icon bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                            <i className="fas fa-search"></i>
+                        </div>
+                        <h2 className="text-4xl font-bold">{t.whatIsDorking}</h2>
+                    </div>
+                    
+                    <p className="text-xl text-[var(--text-secondary)] mb-8 leading-relaxed">
+                        {t.whatIsDorkingDesc}
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 className="text-2xl font-bold mb-4 text-[var(--accent)] flex items-center gap-2">
+                                <i className="fas fa-cogs text-sm"></i>
+                                {t.howItWorks}
+                            </h3>
+                            <p className="text-[var(--text-secondary)] mb-4">
+                                {t.howItWorksDesc1}
+                            </p>
+                            <ul className="space-y-2 text-[var(--text-secondary)]">
+                                <li className="flex items-start gap-2">
+                                    <i className="fas fa-file-pdf text-red-400 mt-1"></i>
+                                    <span>{t.howItWorksDesc2}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <i className="fas fa-link text-blue-400 mt-1"></i>
+                                    <span>{t.howItWorksDesc3}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <i className="fas fa-server text-green-400 mt-1"></i>
+                                    <span>{t.howItWorksDesc4}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <i className="fas fa-lock text-yellow-400 mt-1"></i>
+                                    <span>{t.howItWorksDesc5}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-2xl font-bold mb-4 text-purple-400 flex items-center gap-2">
+                                <i className="fas fa-history text-sm"></i>
+                                {t.history}
+                            </h3>
+                            <p className="text-[var(--text-secondary)] mb-4">
+                                {t.historyDesc1}
+                            </p>
+                            <p className="text-[var(--text-secondary)]">
+                                {t.historyDesc2}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className="bg-[var(--bg-tertiary)] rounded-xl p-6 border border-[var(--border)] mb-8">
+                        <h3 className="text-2xl font-bold mb-4 text-orange-400 flex items-center gap-2">
+                            <i className="fas fa-exclamation-triangle"></i>
+                            {t.ethicalUseTitle}
+                        </h3>
+                        <p className="text-[var(--text-secondary)] mb-4">
+                            {t.ethicalUseDesc1}
+                        </p>
+                        <ul className="grid md:grid-cols-2 gap-3 mb-4">
+                            <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                <i className="fas fa-times-circle text-red-400"></i>
+                                {t.ethicalUseDesc2}
+                            </li>
+                            <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                <i className="fas fa-times-circle text-red-400"></i>
+                                {t.ethicalUseDesc3}
+                            </li>
+                            <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                <i className="fas fa-times-circle text-red-400"></i>
+                                {t.ethicalUseDesc4}
+                            </li>
+                            <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                <i className="fas fa-times-circle text-red-400"></i>
+                                {t.ethicalUseDesc5}
+                            </li>
+                        </ul>
+                        <div className="bg-red-500 bg-opacity-10 border border-red-500 border-opacity-30 rounded-lg p-4">
+                            <p className="text-red-400 font-semibold flex items-start gap-3">
+                                <i className="fas fa-shield-alt text-xl"></i>
+                                {t.ethicalUseWarning}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 className="text-xl font-bold mb-4 text-green-400 flex items-center gap-2">
+                                <i className="fas fa-check-circle"></i>
+                                {t.useCases}
+                            </h3>
+                            <ul className="space-y-2">
+                                <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                    <i className="fas fa-shield text-green-400"></i>
+                                    {t.useCase1}
+                                </li>
+                                <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                    <i className="fas fa-graduation-cap text-green-400"></i>
+                                    {t.useCase2}
+                                </li>
+                                <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                    <i className="fas fa-newspaper text-green-400"></i>
+                                    {t.useCase3}
+                                </li>
+                                <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                    <i className="fas fa-terminal text-green-400"></i>
+                                    {t.useCase4}
+                                </li>
+                                <li className="flex items-center gap-2 text-[var(--text-secondary)]">
+                                    <i className="fas fa-eye text-green-400"></i>
+                                    {t.useCase5}
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
+                                <i className="fas fa-code-branch"></i>
+                                {t.dorkingVsHacking}
+                            </h3>
+                            <p className="text-[var(--text-secondary)] mb-6">
+                                {t.dorkingVsHackingDesc}
+                            </p>
+                            <button 
+                                onClick={() => {
+                                    const event = new CustomEvent('changeView', { detail: 'builder' });
+                                    window.dispatchEvent(event);
+                                }}
+                                className="btn-primary w-full"
+                            >
+                                <i className="fas fa-arrow-right mr-2"></i>
+                                {t.startBuilding}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        
         const Home = ({ setCurrentView, currentLang }) => {
             const t = translations[currentLang];
             
@@ -597,6 +918,8 @@
                             <i className="fas fa-arrow-right"></i>
                         </button>
                     </div>
+                    
+                    <WhatIsDorking currentLang={currentLang} />
                     
                     <div className="mb-20">
                         <h2 className="text-3xl font-bold mb-12 text-center">{t.features}</h2>
@@ -661,6 +984,10 @@
                     <div className="mb-12">
                         <h1 className="text-5xl font-bold mb-6">{t.documentation}</h1>
                         <p className="text-xl text-[var(--text-secondary)]">{t.docIntro}</p>
+                    </div>
+                    
+                    <div className="mb-16">
+                        <WhatIsDorking currentLang={currentLang} />
                     </div>
                     
                     <div className="mb-16">
@@ -759,11 +1086,11 @@
             );
         };
         
-        // COMPOSANT BUILDER CORRIGÉ - FONCTIONNE PARFAITEMENT
         const Builder = ({ savedDorks, saveDork, setCurrentView, currentLang }) => {
             const t = translations[currentLang];
             const [query, setQuery] = useState('');
             const [selectedEngine, setSelectedEngine] = useState('google');
+            const [isOpening, setIsOpening] = useState(false);
             const textareaRef = useRef(null);
             const operators = getDorkOperators(currentLang);
             
@@ -781,15 +1108,12 @@
                 }
             }, []);
             
-            // FONCTION CORRIGÉE - Ajoute l'opérateur avec un espace après
             const addOperator = (operatorValue) => {
                 setQuery(prev => {
-                    // Si la requête est vide, ajouter l'opérateur
                     if (!prev.trim()) {
                         return operatorValue + ' ';
                     }
                     
-                    // Vérifier si le dernier caractère est déjà un espace
                     if (prev.endsWith(' ')) {
                         return prev + operatorValue + ' ';
                     } else {
@@ -797,12 +1121,12 @@
                     }
                 });
                 
-                // Focus sur le textarea
                 if (textareaRef.current) {
                     textareaRef.current.focus();
                 }
             };
             
+            // FONCTION CORRIGÉE POUR "ALL" - Ouvre dans TOUS les moteurs
             const performSearch = () => {
                 if (!query.trim()) {
                     alert(currentLang === 'fr' ? 'Veuillez créer une requête' : 'Please create a query');
@@ -812,11 +1136,28 @@
                 const encodedQuery = encodeURIComponent(query);
                 const engine = searchEngines.find(e => e.id === selectedEngine);
                 
-                if (engine.url === 'multi') {
-                    searchEngines.filter(e => e.id !== 'all').forEach(e => {
-                        window.open(`${e.url}${encodedQuery}`, '_blank');
+                if (engine.id === 'all') {
+                    setIsOpening(true);
+                    
+                    // Ouvrir dans TOUS les moteurs sauf "all"
+                    const enginesToOpen = searchEngines.filter(e => e.id !== 'all' && e.url !== 'multi');
+                    
+                    // Afficher un message
+                    alert(`${t.openingAllEngines} (${enginesToOpen.length} moteurs)`);
+                    
+                    // Ouvrir chaque moteur avec un petit délai pour éviter le blocage des popups
+                    enginesToOpen.forEach((e, index) => {
+                        setTimeout(() => {
+                            window.open(`${e.url}${encodedQuery}`, '_blank');
+                        }, index * 300); // 300ms d'intervalle
                     });
+                    
+                    setTimeout(() => {
+                        setIsOpening(false);
+                    }, enginesToOpen.length * 300 + 1000);
+                    
                 } else {
+                    // Moteur unique
                     window.open(`${engine.url}${encodedQuery}`, '_blank');
                 }
             };
@@ -856,25 +1197,26 @@
                         </p>
                     </div>
                     
-                    {/* Search Engine Selector */}
+                    {/* Search Engine Selector - BEAUCOUP PLUS DE MOTEURS */}
                     <div className="card mb-8">
                         <h2 className="text-xl font-bold mb-4">{t.selectEngine}</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
                             {searchEngines.map((engine) => (
                                 <button
                                     key={engine.id}
                                     onClick={() => setSelectedEngine(engine.id)}
-                                    className={`relative p-4 rounded-xl transition-all duration-300 ${
+                                    className={`engine-card relative p-4 rounded-xl transition-all duration-300 ${
                                         selectedEngine === engine.id
-                                            ? 'ring-2 ring-[var(--accent)] scale-105'
-                                            : 'hover:scale-105'
-                                    }`}
+                                            ? 'ring-2 ring-[var(--accent)] scale-105 shadow-xl'
+                                            : 'hover:scale-105 hover:shadow-lg'
+                                    } ${isOpening && engine.id === 'all' ? 'opacity-50 cursor-wait' : ''}`}
                                     style={{
                                         background: selectedEngine === engine.id 
                                             ? engine.gradient 
                                             : 'var(--bg-tertiary)',
                                         border: '1px solid var(--border)'
                                     }}
+                                    disabled={isOpening}
                                 >
                                     <div className="flex flex-col items-center gap-2">
                                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold ${
@@ -887,13 +1229,43 @@
                                         }`}>
                                             {engine.name}
                                         </div>
+                                        {engine.popular && (
+                                            <div className="absolute top-1 right-1">
+                                                <i className="fas fa-star text-yellow-400 text-[10px]"></i>
+                                            </div>
+                                        )}
                                     </div>
                                 </button>
                             ))}
                         </div>
+                        
+                        {/* Description du moteur sélectionné */}
+                        <div className="mt-6 p-4 bg-[var(--bg-tertiary)] rounded-lg border border-[var(--border)]">
+                            <p className="text-sm text-[var(--text-secondary)]">
+                                {selectedEngine === 'google' && t.googleDesc}
+                                {selectedEngine === 'bing' && t.bingDesc}
+                                {selectedEngine === 'duckduckgo' && t.duckduckgoDesc}
+                                {selectedEngine === 'yandex' && t.yandexDesc}
+                                {selectedEngine === 'startpage' && t.startpageDesc}
+                                {selectedEngine === 'qwant' && t.qwantDesc}
+                                {selectedEngine === 'brave' && t.braveDesc}
+                                {selectedEngine === 'ecosia' && t.ecosiaDesc}
+                                {selectedEngine === 'mojeek' && t.mojeekDesc}
+                                {selectedEngine === 'swisscows' && t.swisscowsDesc}
+                                {selectedEngine === 'all' && t.allDesc}
+                            </p>
+                            {selectedEngine === 'all' && (
+                                <p className="text-xs text-[var(--accent)] mt-2">
+                                    <i className="fas fa-info-circle mr-1"></i>
+                                    {currentLang === 'fr' 
+                                        ? `Ouvre dans ${searchEngines.filter(e => e.id !== 'all').length} moteurs de recherche` 
+                                        : `Opens in ${searchEngines.filter(e => e.id !== 'all').length} search engines`
+                                    }
+                                </p>
+                            )}
+                        </div>
                     </div>
                     
-                    {/* Zone de construction - TEXTAREA FONCTIONNEL */}
                     <div className="card mb-8">
                         <h2 className="text-xl font-bold mb-4">
                             {currentLang === 'fr' ? 'Zone de construction' : 'Construction zone'}
@@ -914,6 +1286,7 @@
                             <button 
                                 onClick={handleClear}
                                 className="btn-secondary"
+                                disabled={isOpening}
                             >
                                 <i className="fas fa-trash mr-2"></i>
                                 {currentLang === 'fr' ? 'Effacer' : 'Clear'}
@@ -922,6 +1295,7 @@
                             <button 
                                 onClick={copyQuery}
                                 className="btn-secondary"
+                                disabled={isOpening}
                             >
                                 <i className="fas fa-copy mr-2"></i>
                                 {t.copyQuery}
@@ -930,6 +1304,7 @@
                             <button 
                                 onClick={handleSave}
                                 className="btn-secondary"
+                                disabled={isOpening}
                             >
                                 <i className="fas fa-save mr-2"></i>
                                 {t.saveQuery}
@@ -937,21 +1312,29 @@
                             
                             <button 
                                 onClick={performSearch}
-                                className="btn-primary flex-grow"
+                                className={`btn-primary flex-grow ${isOpening ? 'opacity-50 cursor-wait' : ''}`}
+                                disabled={isOpening}
                             >
-                                <i className="fas fa-search mr-2"></i>
-                                {t.testQuery}
+                                {isOpening ? (
+                                    <>
+                                        <i className="fas fa-spinner fa-spin mr-2"></i>
+                                        {currentLang === 'fr' ? 'Ouverture...' : 'Opening...'}
+                                    </>
+                                ) : (
+                                    <>
+                                        <i className="fas fa-search mr-2"></i>
+                                        {t.testQuery}
+                                    </>
+                                )}
                             </button>
                         </div>
                     </div>
                     
-                    {/* Boîte à outils - Opérateurs cliquables - CORRIGÉS */}
                     <div className="card">
                         <h2 className="text-xl font-bold mb-6">
                             {currentLang === 'fr' ? 'Boîte à outils' : 'Toolbox'}
                         </h2>
                         
-                        {/* Opérateurs de base */}
                         <div className="mb-8">
                             <h3 className="text-lg font-semibold mb-4 text-[var(--accent)]">{t.basicOperators}</h3>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -961,6 +1344,7 @@
                                         onClick={() => addOperator(op.value)}
                                         className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-[var(--accent)] cursor-pointer"
                                         title={op.desc}
+                                        disabled={isOpening}
                                     >
                                         <code className="text-[var(--accent)] font-bold text-lg block mb-2 group-hover:scale-110 transition-transform">
                                             {op.name}
@@ -973,7 +1357,6 @@
                             </div>
                         </div>
                         
-                        {/* Opérateurs avancés */}
                         <div className="mb-8">
                             <h3 className="text-lg font-semibold mb-4 text-purple-400">{t.advancedOperators}</h3>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -983,6 +1366,7 @@
                                         onClick={() => addOperator(op.value)}
                                         className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-purple-400 cursor-pointer"
                                         title={op.desc}
+                                        disabled={isOpening}
                                     >
                                         <code className="text-purple-400 font-bold text-lg block mb-2 group-hover:scale-110 transition-transform">
                                             {op.name}
@@ -995,7 +1379,6 @@
                             </div>
                         </div>
                         
-                        {/* Opérateurs spéciaux */}
                         <div>
                             <h3 className="text-lg font-semibold mb-4 text-orange-400">
                                 {currentLang === 'fr' ? 'Opérateurs spéciaux' : 'Special Operators'}
@@ -1007,6 +1390,7 @@
                                         onClick={() => addOperator(op.value)}
                                         className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-orange-400 cursor-pointer"
                                         title={op.desc}
+                                        disabled={isOpening}
                                     >
                                         <code className="text-orange-400 font-bold text-lg block mb-2 group-hover:scale-110 transition-transform">
                                             {op.name}
@@ -1255,6 +1639,16 @@
                 if (saved) {
                     setSavedDorks(JSON.parse(saved));
                 }
+            }, []);
+            
+            // Écouter les événements de changement de vue
+            useEffect(() => {
+                const handleChangeView = (e) => {
+                    setCurrentView(e.detail);
+                };
+                
+                window.addEventListener('changeView', handleChangeView);
+                return () => window.removeEventListener('changeView', handleChangeView);
             }, []);
             
             const saveDork = (dork) => {
