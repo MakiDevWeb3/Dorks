@@ -54,7 +54,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Typography Premium */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Syne', sans-serif;
             font-weight: 700;
@@ -66,7 +65,6 @@
             font-family: 'IBM Plex Mono', monospace;
         }
         
-        /* Custom Scrollbar Premium */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -79,14 +77,12 @@
         ::-webkit-scrollbar-thumb {
             background: var(--text-tertiary);
             border-radius: 4px;
-            transition: background 0.2s;
         }
         
         ::-webkit-scrollbar-thumb:hover {
             background: var(--text-secondary);
         }
         
-        /* Animated Grid Background */
         .grid-bg {
             position: fixed;
             top: 0;
@@ -107,7 +103,6 @@
             100% { transform: translate(60px, 60px); }
         }
         
-        /* Gradient Orbs Background */
         .gradient-orbs {
             position: fixed;
             top: 0;
@@ -151,7 +146,6 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
         }
         
-        /* Glass Effect Premium */
         .glass {
             background: rgba(20, 20, 20, 0.7);
             backdrop-filter: blur(20px) saturate(180%);
@@ -164,7 +158,6 @@
             border: 1px solid var(--border-hover);
         }
         
-        /* Buttons Premium avec micro-interactions */
         .btn-primary {
             background: var(--gradient-2);
             color: white;
@@ -200,10 +193,6 @@
             box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
         }
         
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-        
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
@@ -214,8 +203,6 @@
             font-size: 0.875rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
         }
         
         .btn-secondary:hover {
@@ -224,28 +211,6 @@
             transform: translateY(-1px);
         }
         
-        .btn-secondary:active {
-            transform: translateY(0);
-        }
-        
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-secondary);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-ghost:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Cards Premium */
         .card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -255,36 +220,12 @@
             position: relative;
         }
         
-        .card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 1.25rem;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-        
         .card:hover {
             border-color: var(--border-hover);
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
-        .card:hover::before {
-            opacity: 1;
-        }
-        
-        .card-interactive {
-            cursor: pointer;
-        }
-        
-        /* Input Fields Premium */
         .input-field {
             background: var(--bg-tertiary);
             border: 1.5px solid var(--border);
@@ -294,7 +235,6 @@
             font-size: 0.875rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
-            font-family: inherit;
         }
         
         .input-field:focus {
@@ -304,56 +244,6 @@
             box-shadow: 0 0 0 4px var(--accent-light);
         }
         
-        .input-field::placeholder {
-            color: var(--text-tertiary);
-        }
-        
-        textarea::placeholder {
-            color: var(--text-tertiary) !important;
-            opacity: 0.6;
-        }
-        
-        /* Select Premium */
-        select.input-field {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a1a1aa' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            padding-right: 3rem;
-        }
-        
-        /* Tags/Pills Premium */
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 3rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .tag:hover {
-            border-color: var(--accent);
-            color: var(--text-primary);
-            background: var(--accent-light);
-            transform: translateY(-2px);
-        }
-        
-        .tag.active {
-            background: var(--gradient-2);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Code Block Premium */
         .code-block {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
@@ -362,37 +252,6 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.875rem;
             overflow-x: auto;
-            position: relative;
-            line-height: 1.6;
-        }
-        
-        .code-block code {
-            color: var(--text-secondary);
-            word-break: break-all;
-        }
-        
-        .code-block-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        /* Badge Premium */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.375rem 0.875rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
         
         .badge-success {
@@ -401,13 +260,6 @@
             color: var(--success);
         }
         
-        .badge-warning {
-            background: rgba(245, 158, 11, 0.1);
-            border-color: rgba(245, 158, 11, 0.3);
-            color: var(--warning);
-        }
-        
-        /* Navigation Pills Premium */
         .nav-pill {
             padding: 0.625rem 1.25rem;
             border-radius: 0.75rem;
@@ -416,8 +268,6 @@
             color: var(--text-secondary);
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            border: 1px solid transparent;
-            position: relative;
         }
         
         .nav-pill:hover {
@@ -431,7 +281,10 @@
             border-color: var(--border);
         }
         
-        /* Animations Premium */
+        .fade-in {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -443,86 +296,6 @@
             }
         }
         
-        .fade-in {
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in {
-            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .scale-in {
-            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* Pulse Animation */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-        
-        .pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        /* Toast Notification Premium */
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-hover);
-            padding: 1rem 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            animation: slideInRight 0.3s ease-out;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        /* Divider Premium */
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--border), transparent);
-            margin: 3rem 0;
-        }
-        
-        /* Feature Icon Premium */
         .feature-icon {
             width: 4rem;
             height: 4rem;
@@ -533,76 +306,11 @@
             justify-content: center;
             color: var(--accent);
             font-size: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-        }
-        
-        /* Selection Color */
         ::selection {
             background: var(--accent);
             color: white;
-        }
-        
-        /* Focus Visible */
-        *:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-        
-        /* Loading State */
-        .loading {
-            position: relative;
-            pointer-events: none;
-            opacity: 0.6;
-        }
-        
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid var(--accent);
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Stagger Animation */
-        .stagger-item {
-            opacity: 0;
-            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-        
-        .stagger-item:nth-child(1) { animation-delay: 0.1s; }
-        .stagger-item:nth-child(2) { animation-delay: 0.2s; }
-        .stagger-item:nth-child(3) { animation-delay: 0.3s; }
-        .stagger-item:nth-child(4) { animation-delay: 0.4s; }
-        .stagger-item:nth-child(5) { animation-delay: 0.5s; }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .card {
-                padding: 1.5rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                padding: 0.75rem 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
         }
     </style>
 </head>
@@ -617,25 +325,19 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
         
-        // Translations COMPLÈTES ET CORRECTES
         const translations = {
             fr: {
-                // Navigation
                 home: "Accueil",
                 docs: "Documentation",
                 builder: "Constructeur",
                 saved: "Sauvegardés",
                 about: "À propos",
                 clearAll: "Tout effacer",
-                
-                // Home
                 title: "Dorking Architect",
                 subtitle: "Construisez des requêtes Google Dork professionnelles",
                 description: "Un outil puissant pour créer, sauvegarder et gérer vos requêtes de recherche avancée.",
                 getStarted: "Commencer",
                 newVersion: "Nouvelle interface",
-                
-                // Features
                 features: "Fonctionnalités",
                 feature1Title: "Interface intuitive",
                 feature1Desc: "Construction visuelle de requêtes complexes",
@@ -643,85 +345,37 @@
                 feature2Desc: "Tous les opérateurs Google Dork",
                 feature3Title: "Sauvegarde locale",
                 feature3Desc: "Vos requêtes stockées en toute sécurité",
-                
-                // Stats
                 operators: "Opérateurs",
                 free: "Gratuit",
                 queries: "Requêtes",
                 storage: "Stockage",
                 local: "Local",
-                
-                // Documentation
                 documentation: "Documentation",
                 docIntro: "Apprenez à utiliser Google Dork pour des recherches avancées et du pentest éthique.",
                 basicOperators: "Opérateurs de base",
                 advancedOperators: "Opérateurs avancés",
                 specialOperators: "Opérateurs spéciaux",
                 examples: "Exemples pratiques",
-                
-                // Operator descriptions FR
-                opSiteDesc: "Rechercher dans un domaine spécifique",
-                opFiletypeDesc: "Rechercher un type de fichier",
-                opIntitleDesc: "Mot dans le titre de la page",
-                opInurlDesc: "Mot dans l'URL de la page",
-                opIntextDesc: "Mot dans le contenu de la page",
-                opCacheDesc: "Version en cache d'une page",
-                opLinkDesc: "Pages qui pointent vers une URL",
-                opRelatedDesc: "Sites similaires à une URL",
-                opInfoDesc: "Informations sur un site",
-                opAllintextDesc: "Tous les mots dans le contenu",
-                opAllinurlDesc: "Tous les mots dans l'URL",
-                opAllintitleDesc: "Tous les mots dans le titre",
-                opExactDesc: "Recherche d'expression exacte",
-                opExcludeDesc: "Exclure un mot des résultats",
-                opOrDesc: "L'un ou l'autre mot",
-                opWildcardDesc: "Remplace un ou plusieurs caractères",
-                opRangeDesc: "Plage de nombres ou dates",
-                
-                // Builder
                 buildQuery: "Construire une requête",
                 addOperator: "Ajouter un opérateur",
                 queryPreview: "Aperçu de la requête",
                 selectEngine: "Sélectionner un moteur de recherche",
                 testQuery: "Tester la requête",
                 saveQuery: "Sauvegarder",
-                
-                // Search Engines
                 googleDesc: "Moteur de recherche le plus populaire",
                 bingDesc: "Moteur de recherche de Microsoft",
                 duckduckgoDesc: "Recherche privée sans tracking",
                 yandexDesc: "Moteur de recherche russe",
                 startpageDesc: "Résultats Google avec protection de la vie privée",
                 allDesc: "Ouvrir dans tous les moteurs",
-                queryName: "Nom de la requête",
-                enterQueryName: "Entrez un nom descriptif...",
-                selectOperator: "Sélectionner un opérateur",
-                operatorValue: "Valeur",
-                enterValue: "Entrer une valeur...",
-                addToQuery: "Ajouter à la requête",
-                clearQuery: "Effacer tout",
-                queryComponents: "Composants de la requête",
-                noComponents: "Aucun composant. Ajoutez des opérateurs ci-dessus.",
-                remove: "Retirer",
-                
-                // Saved
-                savedQueries: "Requêtes sauvegardées",
-                noSavedQueries: "Aucune requête sauvegardée pour le moment",
-                deleteQuery: "Supprimer",
-                loadQuery: "Modifier",
-                exportQuery: "Exporter",
                 copyQuery: "Copier",
                 search: "Rechercher",
                 queryCopied: "Requête copiée dans le presse-papier !",
                 deleteAllQueries: "Êtes-vous sûr de vouloir supprimer toutes les requêtes ?",
                 querySaved: "Requête sauvegardée avec succès !",
-                
-                // Examples
                 examplePdfTitle: "Trouver des fichiers PDF sur un site",
                 exampleLoginTitle: "Rechercher des pages de connexion admin",
                 exampleDocsTitle: "Trouver des documents sensibles",
-                
-                // About
                 aboutTitle: "À propos",
                 aboutSubtitle: "Créé avec passion par Maki",
                 aboutDescription: "Passionné par le web3, la cybersécurité et le développement. Je partage mes connaissances et outils gratuits pour aider la communauté.",
@@ -729,34 +383,29 @@
                 aboutMissionDesc: "Rendre la technologie accessible à tous, sans bullshit ni promesses irréalistes.",
                 visitWebsite: "Visiter mon site",
                 followTikTok: "Me suivre sur TikTok",
-                
-                // Footer
                 developer: "Développé par Maki",
                 version: "Version 2.0",
                 copyright: "© 2024 Dorking Architect Pro",
                 ethicalUse: "Utilisation éthique uniquement",
                 localStorageActive: "Stockage local actif",
-                browsersSupported: "navigateurs supportés",
                 madeWith: "Fait avec",
                 by: "par",
+                savedQueries: "Requêtes sauvegardées",
+                noSavedQueries: "Aucune requête sauvegardée pour le moment",
+                loadQuery: "Modifier",
             },
             en: {
-                // Navigation
                 home: "Home",
                 docs: "Documentation",
                 builder: "Builder",
                 saved: "Saved",
                 about: "About",
                 clearAll: "Clear all",
-                
-                // Home
                 title: "Dorking Architect",
                 subtitle: "Build professional Google Dork queries",
                 description: "A powerful tool to create, save and manage your advanced search queries.",
                 getStarted: "Get Started",
                 newVersion: "New interface",
-                
-                // Features
                 features: "Features",
                 feature1Title: "Intuitive Interface",
                 feature1Desc: "Visual construction of complex queries",
@@ -764,85 +413,37 @@
                 feature2Desc: "All Google Dork operators",
                 feature3Title: "Local Storage",
                 feature3Desc: "Your queries stored securely",
-                
-                // Stats
                 operators: "Operators",
                 free: "Free",
                 queries: "Queries",
                 storage: "Storage",
                 local: "Local",
-                
-                // Documentation
                 documentation: "Documentation",
                 docIntro: "Learn how to use Google Dork for advanced searches and ethical pentesting.",
                 basicOperators: "Basic Operators",
                 advancedOperators: "Advanced Operators",
                 specialOperators: "Special Operators",
                 examples: "Practical Examples",
-                
-                // Operator descriptions EN
-                opSiteDesc: "Search within a specific domain",
-                opFiletypeDesc: "Search for a specific file type",
-                opIntitleDesc: "Word in the page title",
-                opInurlDesc: "Word in the page URL",
-                opIntextDesc: "Word in the page content",
-                opCacheDesc: "Cached version of a page",
-                opLinkDesc: "Pages that link to a URL",
-                opRelatedDesc: "Sites similar to a URL",
-                opInfoDesc: "Information about a site",
-                opAllintextDesc: "All words in the content",
-                opAllinurlDesc: "All words in the URL",
-                opAllintitleDesc: "All words in the title",
-                opExactDesc: "Exact phrase search",
-                opExcludeDesc: "Exclude a word from results",
-                opOrDesc: "Either word can match",
-                opWildcardDesc: "Replace one or more characters",
-                opRangeDesc: "Range of numbers or dates",
-                
-                // Builder
                 buildQuery: "Build a query",
                 addOperator: "Add operator",
                 queryPreview: "Query preview",
                 selectEngine: "Select a search engine",
                 testQuery: "Test query",
                 saveQuery: "Save",
-                
-                // Search Engines
                 googleDesc: "Most popular search engine",
                 bingDesc: "Microsoft search engine",
                 duckduckgoDesc: "Private search without tracking",
                 yandexDesc: "Russian search engine",
                 startpageDesc: "Google results with privacy protection",
                 allDesc: "Open in all engines",
-                queryName: "Query name",
-                enterQueryName: "Enter a descriptive name...",
-                selectOperator: "Select an operator",
-                operatorValue: "Value",
-                enterValue: "Enter a value...",
-                addToQuery: "Add to query",
-                clearQuery: "Clear all",
-                queryComponents: "Query components",
-                noComponents: "No components. Add operators above.",
-                remove: "Remove",
-                
-                // Saved
-                savedQueries: "Saved queries",
-                noSavedQueries: "No saved queries yet",
-                deleteQuery: "Delete",
-                loadQuery: "Edit",
-                exportQuery: "Export",
                 copyQuery: "Copy",
                 search: "Search",
                 queryCopied: "Query copied to clipboard!",
                 deleteAllQueries: "Are you sure you want to delete all queries?",
                 querySaved: "Query saved successfully!",
-                
-                // Examples
                 examplePdfTitle: "Find PDF files on a website",
                 exampleLoginTitle: "Search for admin login pages",
                 exampleDocsTitle: "Find sensitive documents",
-                
-                // About
                 aboutTitle: "About",
                 aboutSubtitle: "Created with passion by Maki",
                 aboutDescription: "Passionate about web3, cybersecurity and development. I share my knowledge and free tools to help the community.",
@@ -850,20 +451,19 @@
                 aboutMissionDesc: "Make technology accessible to everyone, without bullshit or unrealistic promises.",
                 visitWebsite: "Visit my website",
                 followTikTok: "Follow me on TikTok",
-                
-                // Footer
                 developer: "Developed by Maki",
                 version: "Version 2.0",
                 copyright: "© 2024 Dorking Architect Pro",
                 ethicalUse: "Ethical use only",
                 localStorageActive: "Local storage active",
-                browsersSupported: "supported browsers",
                 madeWith: "Made with",
                 by: "by",
+                savedQueries: "Saved queries",
+                noSavedQueries: "No saved queries yet",
+                loadQuery: "Edit",
             }
         };
         
-        // Search Engines Configuration
         const searchEngines = [
             {
                 id: 'google',
@@ -909,36 +509,34 @@
             }
         ];
         
-        // Google Dork Operators COMPLETS avec traductions
         const getDorkOperators = (lang) => ({
             basic: [
-                { name: 'inurl:', desc: lang === 'fr' ? 'Recherche un mot spécifique dans l\'URL de la page' : 'Searches for a specific word in the page URL', example: 'inurl:admin' },
-                { name: 'allinurl:', desc: lang === 'fr' ? 'Recherche tous les mots spécifiés dans l\'URL' : 'Searches for all specified words in the URL', example: 'allinurl:admin login' },
-                { name: 'intitle:', desc: lang === 'fr' ? 'Recherche un mot dans le titre de la page' : 'Searches for a word in the page title', example: 'intitle:"index of"' },
-                { name: 'allintitle:', desc: lang === 'fr' ? 'Recherche tous les mots spécifiés dans le titre' : 'Searches for all specified words in the title', example: 'allintitle:"index of"' },
-                { name: 'site:', desc: lang === 'fr' ? 'Limite la recherche à un site ou domaine spécifique' : 'Limits search to a specific site or domain', example: 'site:example.com' },
-                { name: 'filetype:', desc: lang === 'fr' ? 'Recherche un type spécifique de fichier' : 'Searches for a specific file type', example: 'filetype:pdf' },
-                { name: 'ext:', desc: lang === 'fr' ? 'Recherche les fichiers avec une extension spécifique' : 'Searches for files with a specific extension', example: 'ext:sql' },
-                { name: 'intext:', desc: lang === 'fr' ? 'Recherche un mot dans le contenu textuel de la page' : 'Searches for a word in the page text content', example: 'intext:password' },
-                { name: 'allintext:', desc: lang === 'fr' ? 'Recherche tous les mots spécifiés dans le contenu' : 'Searches for all specified words in the content', example: 'allintext:username password' },
+                { name: 'site:', value: 'site:', desc: lang === 'fr' ? 'Limite la recherche à un site ou domaine spécifique' : 'Limits search to a specific site or domain' },
+                { name: 'filetype:', value: 'filetype:', desc: lang === 'fr' ? 'Recherche un type spécifique de fichier' : 'Searches for a specific file type' },
+                { name: 'ext:', value: 'ext:', desc: lang === 'fr' ? 'Recherche les fichiers avec une extension spécifique' : 'Searches for files with a specific extension' },
+                { name: 'inurl:', value: 'inurl:', desc: lang === 'fr' ? 'Recherche un mot spécifique dans l\'URL de la page' : 'Searches for a specific word in the page URL' },
+                { name: 'allinurl:', value: 'allinurl:', desc: lang === 'fr' ? 'Recherche tous les mots spécifiés dans l\'URL' : 'Searches for all specified words in the URL' },
+                { name: 'intitle:', value: 'intitle:', desc: lang === 'fr' ? 'Recherche un mot dans le titre de la page' : 'Searches for a word in the page title' },
+                { name: 'allintitle:', value: 'allintitle:', desc: lang === 'fr' ? 'Recherche tous les mots spécifiés dans le titre' : 'Searches for all specified words in the title' },
+                { name: 'intext:', value: 'intext:', desc: lang === 'fr' ? 'Recherche un mot dans le contenu textuel de la page' : 'Searches for a word in the page text content' },
+                { name: 'allintext:', value: 'allintext:', desc: lang === 'fr' ? 'Recherche tous les mots spécifiés dans le contenu' : 'Searches for all specified words in the content' },
             ],
             advanced: [
-                { name: '" "', desc: lang === 'fr' ? 'Recherche l\'expression exacte entre guillemets' : 'Searches for the exact phrase in quotes', example: '"forgot password"' },
-                { name: '-site:', desc: lang === 'fr' ? 'Exclut un site spécifique des résultats' : 'Excludes a specific site from results', example: '-site:facebook.com' },
-                { name: '~', desc: lang === 'fr' ? 'Recherche le mot et ses synonymes' : 'Searches for the word and its synonyms', example: '~car' },
-                { name: '-site:*', desc: lang === 'fr' ? 'Exclut tous les sous-domaines' : 'Excludes all subdomains', example: '-site:*.gov' },
-                { name: 'before:', desc: lang === 'fr' ? 'Résultats avant une date spécifique (YYYY-MM-DD)' : 'Results before a specific date (YYYY-MM-DD)', example: 'before:2023-01-01' },
-                { name: 'after:', desc: lang === 'fr' ? 'Résultats après une date spécifique (YYYY-MM-DD)' : 'Results after a specific date (YYYY-MM-DD)', example: 'after:2022-01-01' },
+                { name: '" "', value: '" "', desc: lang === 'fr' ? 'Recherche l\'expression exacte entre guillemets' : 'Searches for the exact phrase in quotes' },
+                { name: '-site:', value: '-site:', desc: lang === 'fr' ? 'Exclut un site spécifique des résultats' : 'Excludes a specific site from results' },
+                { name: '~', value: '~', desc: lang === 'fr' ? 'Recherche le mot et ses synonymes' : 'Searches for the word and its synonyms' },
+                { name: '-site:*', value: '-site:*', desc: lang === 'fr' ? 'Exclut tous les sous-domaines' : 'Excludes all subdomains' },
+                { name: 'before:', value: 'before:', desc: lang === 'fr' ? 'Résultats avant une date spécifique (YYYY-MM-DD)' : 'Results before a specific date (YYYY-MM-DD)' },
+                { name: 'after:', value: 'after:', desc: lang === 'fr' ? 'Résultats après une date spécifique (YYYY-MM-DD)' : 'Results after a specific date (YYYY-MM-DD)' },
             ],
             special: [
-                { name: 'AND', desc: lang === 'fr' ? 'Opérateur logique ET (par défaut)' : 'Logical AND operator (default)', example: 'admin AND login' },
-                { name: 'OR', desc: lang === 'fr' ? 'Opérateur logique OU' : 'Logical OR operator', example: 'admin OR administrator' },
-                { name: '|', desc: lang === 'fr' ? 'Opérateur logique OU (alternative)' : 'Logical OR operator (alternative)', example: 'admin | administrator' },
-                { name: '-', desc: lang === 'fr' ? 'Exclut le terme suivant des résultats' : 'Excludes the following term from results', example: 'login -forum' },
+                { name: 'AND', value: 'AND', desc: lang === 'fr' ? 'Opérateur logique ET (par défaut)' : 'Logical AND operator (default)' },
+                { name: 'OR', value: 'OR', desc: lang === 'fr' ? 'Opérateur logique OU' : 'Logical OR operator' },
+                { name: '|', value: '|', desc: lang === 'fr' ? 'Opérateur logique OU (alternative)' : 'Logical OR operator (alternative)' },
+                { name: '-', value: '-', desc: lang === 'fr' ? 'Exclut le terme suivant des résultats' : 'Excludes the following term from results' },
             ]
         });
         
-        // Language Selector Component Premium
         const LanguageSelector = ({ currentLang, setCurrentLang }) => {
             return (
                 <div className="flex gap-1 bg-[var(--bg-tertiary)] p-1 rounded-lg border border-[var(--border)]">
@@ -966,13 +564,11 @@
             );
         };
         
-        // Home Component Premium
         const Home = ({ setCurrentView, currentLang }) => {
             const t = translations[currentLang];
             
             return (
                 <div className="fade-in max-w-5xl mx-auto">
-                    {/* Hero Section */}
                     <div className="text-center mb-20">
                         <div className="mb-8">
                             <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-full mb-8 scale-in">
@@ -1002,7 +598,6 @@
                         </button>
                     </div>
                     
-                    {/* Features */}
                     <div className="mb-20">
                         <h2 className="text-3xl font-bold mb-12 text-center">{t.features}</h2>
                         
@@ -1033,7 +628,6 @@
                         </div>
                     </div>
                     
-                    {/* Quick Stats */}
                     <div className="glass-strong rounded-2xl p-10">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
                             <div className="text-center">
@@ -1058,7 +652,6 @@
             );
         };
         
-        // Documentation Component Premium avec traductions complètes
         const Documentation = ({ currentLang }) => {
             const t = translations[currentLang];
             const operators = getDorkOperators(currentLang);
@@ -1070,7 +663,6 @@
                         <p className="text-xl text-[var(--text-secondary)]">{t.docIntro}</p>
                     </div>
                     
-                    {/* Basic Operators */}
                     <div className="mb-16">
                         <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
                             <span className="w-2 h-10 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></span>
@@ -1085,9 +677,6 @@
                                         </code>
                                         <div className="flex-1">
                                             <p className="text-[var(--text-primary)] font-medium mb-2">{op.desc}</p>
-                                            <code className="text-sm text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] px-3 py-1 rounded">
-                                                {op.example}
-                                            </code>
                                         </div>
                                     </div>
                                 </div>
@@ -1095,7 +684,6 @@
                         </div>
                     </div>
                     
-                    {/* Advanced Operators */}
                     <div className="mb-16">
                         <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
                             <span className="w-2 h-10 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full"></span>
@@ -1110,9 +698,6 @@
                                         </code>
                                         <div className="flex-1">
                                             <p className="text-[var(--text-primary)] font-medium mb-2">{op.desc}</p>
-                                            <code className="text-sm text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] px-3 py-1 rounded">
-                                                {op.example}
-                                            </code>
                                         </div>
                                     </div>
                                 </div>
@@ -1120,7 +705,6 @@
                         </div>
                     </div>
                     
-                    {/* Special Operators */}
                     <div className="mb-16">
                         <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
                             <span className="w-2 h-10 bg-gradient-to-b from-orange-500 to-orange-600 rounded-full"></span>
@@ -1135,9 +719,6 @@
                                         </code>
                                         <div className="flex-1">
                                             <p className="text-[var(--text-primary)] font-medium mb-2">{op.desc}</p>
-                                            <code className="text-sm text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] px-3 py-1 rounded">
-                                                {op.example}
-                                            </code>
                                         </div>
                                     </div>
                                 </div>
@@ -1145,7 +726,6 @@
                         </div>
                     </div>
                     
-                    {/* Examples */}
                     <div className="glass-strong rounded-2xl p-10">
                         <h2 className="text-3xl font-bold mb-8">{t.examples}</h2>
                         <div className="space-y-6">
@@ -1179,7 +759,7 @@
             );
         };
         
-        // Builder Component Premium AVEC TEXTAREA (VERSION QUI FONCTIONNE)
+        // COMPOSANT BUILDER CORRIGÉ - FONCTIONNE PARFAITEMENT
         const Builder = ({ savedDorks, saveDork, setCurrentView, currentLang }) => {
             const t = translations[currentLang];
             const [query, setQuery] = useState('');
@@ -1187,7 +767,6 @@
             const textareaRef = useRef(null);
             const operators = getDorkOperators(currentLang);
             
-            // Charger la dernière requête si elle existe
             useEffect(() => {
                 const lastDork = localStorage.getItem('lastLoadedDork');
                 if (lastDork) {
@@ -1202,13 +781,23 @@
                 }
             }, []);
             
-            const addSyntax = (syntax) => {
-                const example = syntax.example || syntax.name;
+            // FONCTION CORRIGÉE - Ajoute l'opérateur avec un espace après
+            const addOperator = (operatorValue) => {
                 setQuery(prev => {
-                    const newQuery = prev + (prev && !prev.endsWith(' ') ? ' ' : '') + example;
-                    return newQuery;
+                    // Si la requête est vide, ajouter l'opérateur
+                    if (!prev.trim()) {
+                        return operatorValue + ' ';
+                    }
+                    
+                    // Vérifier si le dernier caractère est déjà un espace
+                    if (prev.endsWith(' ')) {
+                        return prev + operatorValue + ' ';
+                    } else {
+                        return prev + ' ' + operatorValue + ' ';
+                    }
                 });
                 
+                // Focus sur le textarea
                 if (textareaRef.current) {
                     textareaRef.current.focus();
                 }
@@ -1242,7 +831,6 @@
                     query: query,
                     date: new Date().toISOString()
                 });
-                alert(currentLang === 'fr' ? 'Requête sauvegardée !' : 'Query saved!');
             };
             
             const handleClear = () => {
@@ -1264,7 +852,7 @@
                     <div className="mb-12">
                         <h1 className="text-5xl font-bold mb-6">{t.buildQuery}</h1>
                         <p className="text-xl text-[var(--text-secondary)]">
-                            {currentLang === 'fr' ? 'Construisez votre requête pas à pas' : 'Build your query step by step'}
+                            {currentLang === 'fr' ? 'Cliquez sur les opérateurs pour construire votre requête' : 'Click on operators to build your query'}
                         </p>
                     </div>
                     
@@ -1299,18 +887,13 @@
                                         }`}>
                                             {engine.name}
                                         </div>
-                                        {selectedEngine === engine.id && (
-                                            <div className="absolute top-2 right-2">
-                                                <i className="fas fa-check-circle text-white text-sm"></i>
-                                            </div>
-                                        )}
                                     </div>
                                 </button>
                             ))}
                         </div>
                     </div>
                     
-                    {/* Construction Zone avec TEXTAREA */}
+                    {/* Zone de construction - TEXTAREA FONCTIONNEL */}
                     <div className="card mb-8">
                         <h2 className="text-xl font-bold mb-4">
                             {currentLang === 'fr' ? 'Zone de construction' : 'Construction zone'}
@@ -1362,7 +945,7 @@
                         </div>
                     </div>
                     
-                    {/* Boîte à outils - Opérateurs cliquables */}
+                    {/* Boîte à outils - Opérateurs cliquables - CORRIGÉS */}
                     <div className="card">
                         <h2 className="text-xl font-bold mb-6">
                             {currentLang === 'fr' ? 'Boîte à outils' : 'Toolbox'}
@@ -1375,8 +958,8 @@
                                 {operators.basic.map((op, idx) => (
                                     <button
                                         key={idx}
-                                        onClick={() => addSyntax(op)}
-                                        className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-[var(--accent)]"
+                                        onClick={() => addOperator(op.value)}
+                                        className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-[var(--accent)] cursor-pointer"
                                         title={op.desc}
                                     >
                                         <code className="text-[var(--accent)] font-bold text-lg block mb-2 group-hover:scale-110 transition-transform">
@@ -1397,8 +980,8 @@
                                 {operators.advanced.map((op, idx) => (
                                     <button
                                         key={idx}
-                                        onClick={() => addSyntax(op)}
-                                        className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-purple-400"
+                                        onClick={() => addOperator(op.value)}
+                                        className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-purple-400 cursor-pointer"
                                         title={op.desc}
                                     >
                                         <code className="text-purple-400 font-bold text-lg block mb-2 group-hover:scale-110 transition-transform">
@@ -1421,8 +1004,8 @@
                                 {operators.special.map((op, idx) => (
                                     <button
                                         key={idx}
-                                        onClick={() => addSyntax(op)}
-                                        className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-orange-400"
+                                        onClick={() => addOperator(op.value)}
+                                        className="p-4 bg-[var(--bg-tertiary)] rounded-lg text-center hover:bg-[var(--bg-hover)] transition-all group border border-[var(--border)] hover:border-orange-400 cursor-pointer"
                                         title={op.desc}
                                     >
                                         <code className="text-orange-400 font-bold text-lg block mb-2 group-hover:scale-110 transition-transform">
@@ -1440,15 +1023,12 @@
             );
         };
         
-        // About Component Premium avec photo de profil Maki
         const About = ({ currentLang }) => {
             const t = translations[currentLang];
             
             return (
                 <div className="fade-in max-w-4xl mx-auto">
-                    {/* Hero About */}
                     <div className="text-center mb-16">
-                        {/* Photo de profil Maki */}
                         <div className="mb-8">
                             <div className="w-40 h-40 mx-auto mb-6 relative group">
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
@@ -1473,7 +1053,6 @@
                         </p>
                     </div>
                     
-                    {/* Mission */}
                     <div className="card mb-12">
                         <div className="flex items-start gap-6">
                             <div className="feature-icon">
@@ -1486,7 +1065,6 @@
                         </div>
                     </div>
                     
-                    {/* Links vers vos sites */}
                     <div className="grid md:grid-cols-2 gap-6 mb-12">
                         <a 
                             href="https://tobeamaki.store/"
@@ -1525,7 +1103,6 @@
                         </a>
                     </div>
                     
-                    {/* Stats Maki */}
                     <div className="glass-strong rounded-2xl p-10">
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
                             <div>
@@ -1547,7 +1124,6 @@
                         </div>
                     </div>
                     
-                    {/* Signature Maki */}
                     <div className="mt-12 text-center">
                         <p className="text-sm text-[var(--text-tertiary)] italic">
                             {currentLang === 'fr' 
@@ -1560,7 +1136,6 @@
             );
         };
         
-        // Saved Component Premium
         const Saved = ({ savedDorks, deleteDork, setCurrentView, currentLang }) => {
             const t = translations[currentLang];
             
@@ -1571,6 +1146,7 @@
             
             const copyDork = (query) => {
                 navigator.clipboard.writeText(query);
+                alert(t.queryCopied);
             };
             
             const testDork = (query) => {
@@ -1669,7 +1245,6 @@
             );
         };
         
-        // Main App
         const App = () => {
             const [currentView, setCurrentView] = useState('home');
             const [currentLang, setCurrentLang] = useState('fr');
@@ -1686,6 +1261,7 @@
                 const newDorks = [...savedDorks, dork];
                 setSavedDorks(newDorks);
                 localStorage.setItem('dorkingArchitectSaved', JSON.stringify(newDorks));
+                alert(translations[currentLang].querySaved);
             };
             
             const deleteDork = (index) => {
@@ -1705,11 +1281,9 @@
             
             return (
                 <div className="min-h-screen flex flex-col relative">
-                    {/* Header Premium */}
                     <header className="glass-strong sticky top-0 z-50 border-b border-[var(--border)]">
                         <div className="max-w-7xl mx-auto px-6 py-5">
                             <div className="flex justify-between items-center">
-                                {/* Logo Premium avec image Tensor */}
                                 <div 
                                     className="flex items-center gap-4 cursor-pointer group"
                                     onClick={() => setCurrentView('home')}
@@ -1725,7 +1299,6 @@
                                     </div>
                                 </div>
                                 
-                                {/* Navigation Desktop */}
                                 <div className="hidden md:flex items-center gap-3">
                                     <nav className="flex items-center gap-2 bg-[var(--bg-tertiary)] p-1.5 rounded-xl border border-[var(--border)]">
                                         <button
@@ -1786,7 +1359,6 @@
                                     )}
                                 </div>
                                 
-                                {/* Mobile Language Selector */}
                                 <div className="md:hidden">
                                     <LanguageSelector 
                                         currentLang={currentLang} 
@@ -1795,7 +1367,6 @@
                                 </div>
                             </div>
                             
-                            {/* Mobile Navigation */}
                             <nav className="md:hidden flex gap-2 mt-4 overflow-x-auto pb-2">
                                 <button
                                     onClick={() => setCurrentView('home')}
@@ -1841,7 +1412,6 @@
                         </div>
                     </header>
                     
-                    {/* Main Content */}
                     <main className="flex-grow px-6 py-16 relative z-10">
                         {currentView === 'home' && <Home setCurrentView={setCurrentView} currentLang={currentLang} />}
                         {currentView === 'docs' && <Documentation currentLang={currentLang} />}
@@ -1864,11 +1434,9 @@
                         {currentView === 'about' && <About currentLang={currentLang} />}
                     </main>
                     
-                    {/* Footer Premium avec photo Maki */}
                     <footer className="border-t border-[var(--border)] glass-strong mt-auto">
                         <div className="max-w-7xl mx-auto px-6 py-10">
                             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                                {/* Maki Branding avec photo */}
                                 <div className="flex items-center gap-4">
                                     <img 
                                         src="https://prod-image-cdn.tensor.trade/images/slug=2c6c34a6-a621-4c5c-a47c-af0aac421579/400x400/freeze=false/https%3A%2F%2Fgateway.irys.xyz%2FCeRVqfexaq6KLjhwmfoS9aE4mgQL9Txv5ToTV9CzAG5n"
@@ -1923,7 +1491,6 @@
             );
         };
         
-        // Render
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
